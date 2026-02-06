@@ -77,13 +77,14 @@ jobs:
             mkdir -p ~/.gnupg
             chmod 700 ~/.gnupg
             printf '%s' "$HELM_SIGNING_PRIVATE_KEY" | gpg --batch --import
+            # Passphrase file for gpg/helm (avoids gpg-agent TTY in CI)
+            printf '%s' "$HELM_SIGNING_PASSPHRASE" > /tmp/helm-passphrase
             # Helm expects legacy keyring format (secring.gpg); GnuPG v2 uses keybox by default
             gpg --export > ~/.gnupg/pubring.gpg
-            gpg --export-secret-keys > ~/.gnupg/secring.gpg
+            gpg --batch --pinentry-mode loopback --passphrase-file /tmp/helm-passphrase --export-secret-keys > ~/.gnupg/secring.gpg
             chmod 600 ~/.gnupg/secring.gpg
             gpg --export --armor "$HELM_SIGNING_KEY_NAME" > docs/pgp_keys.asc
             if [ -n "$HELM_SIGNING_PASSPHRASE" ]; then
-              printf '%s' "$HELM_SIGNING_PASSPHRASE" > /tmp/helm-passphrase
               helm package --sign --key "$HELM_SIGNING_KEY_NAME" --keyring ~/.gnupg/secring.gpg --passphrase-file /tmp/helm-passphrase chart
             else
               helm package --sign --key "$HELM_SIGNING_KEY_NAME" --keyring ~/.gnupg/secring.gpg chart
