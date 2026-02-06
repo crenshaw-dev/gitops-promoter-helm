@@ -6,11 +6,7 @@ The release workflow can sign the Helm chart with PGP so Artifact Hub shows the 
 
 ### 1. Create or use a PGP key
 
-Generate a new key, or use an existing one (e.g. from [Keybase](https://keybase.io)):
-
-```bash
-gpg --full-generate-key   # or use Keybase and export
-```
+**Helm’s signer only supports RSA keys.** Ed25519 and other modern key types (e.g. from `gpg --full-generate-key` defaults) will fail with “public key type: 22”. Create an RSA key: `gpg --full-generate-key` and when prompted choose **RSA and RSA**, 4096 bits. Do not use the default “Ed25519” option.
 
 List your secret keys to get the key UID (name/email) and fingerprint:
 

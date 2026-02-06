@@ -20,7 +20,7 @@ sources:
 annotations:
   artifacthub.io/category: integration-delivery
   artifacthub.io/signKey: |
-    fingerprint: F6D6C36E5AC638EF737BFD45F90A0B0C64A662A5
+    fingerprint: 042F39C026783046DCA1CF2A73C36C56C3F06E8E
     url: https://argoproj-labs.github.io/gitops-promoter-helm/pgp_keys.asc
   artifacthub.io/screenshots: |-
     - title: GitOps Promoter UI
