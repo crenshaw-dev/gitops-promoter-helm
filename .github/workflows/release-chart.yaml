@@ -62,9 +62,9 @@ jobs:
         if: steps.check-update.outputs.update_needed == 'true'
         working-directory: current-repo
         env:
+          HELM_SIGNING_PRIVATE_KEY: ${{ secrets.HELM_SIGNING_PRIVATE_KEY }}
           HELM_SIGNING_KEY_NAME: ${{ secrets.HELM_SIGNING_KEY_NAME }}
           HELM_SIGNING_PASSPHRASE: ${{ secrets.HELM_SIGNING_PASSPHRASE }}
-          HELM_SIGNING_PRIVATE_KEY: ${{ secrets.HELM_SIGNING_PRIVATE_KEY }}
         run: |
           set -ex
           git fetch origin gh-pages
@@ -76,12 +76,14 @@ jobs:
           if [ -n "$HELM_SIGNING_KEY_NAME" ] && [ -n "$HELM_SIGNING_PRIVATE_KEY" ]; then
             mkdir -p ~/.gnupg
             chmod 700 ~/.gnupg
-            echo "$HELM_SIGNING_PRIVATE_KEY" | gpg --batch --import
-            gpg --export-secret-keys >> ~/.gnupg/secring.gpg 2>/dev/null || true
-            chmod 600 ~/.gnupg/secring.gpg 2>/dev/null || true
+            printf '%s' "$HELM_SIGNING_PRIVATE_KEY" | gpg --batch --import
+            # Helm expects legacy keyring format (secring.gpg); GnuPG v2 uses keybox by default
+            gpg --export > ~/.gnupg/pubring.gpg
+            gpg --export-secret-keys > ~/.gnupg/secring.gpg
+            chmod 600 ~/.gnupg/secring.gpg
             gpg --export --armor "$HELM_SIGNING_KEY_NAME" > docs/pgp_keys.asc
             if [ -n "$HELM_SIGNING_PASSPHRASE" ]; then
-              echo "$HELM_SIGNING_PASSPHRASE" > /tmp/helm-passphrase
+              printf '%s' "$HELM_SIGNING_PASSPHRASE" > /tmp/helm-passphrase
               helm package --sign --key "$HELM_SIGNING_KEY_NAME" --keyring ~/.gnupg/secring.gpg --passphrase-file /tmp/helm-passphrase chart
             else
               helm package --sign --key "$HELM_SIGNING_KEY_NAME" --keyring ~/.gnupg/secring.gpg chart
