@@ -506,7 +506,7 @@ annotations:
     - title: GitOps Promoter UI
       url: https://gitops-promoter.readthedocs.io/en/latest/assets/demo.gif
   artifacthub.io/signKey: |
-    fingerprint: F6D6C36E5AC638EF737BFD45F90A0B0C64A662A5
+    fingerprint: 042F39C026783046DCA1CF2A73C36C56C3F06E8E
     url: https://argoproj-labs.github.io/gitops-promoter-helm/pgp_keys.asc
 apiVersion: v2
 appVersion: 0.22.1
@@ -531,20 +531,20 @@ version: 0.2.4
 
 ...
 files:
-  gitops-promoter-0.2.4.tgz: sha256:7ada65b8daed092a92c9a62c6b1653fbe334e5d0051623a68f927c1ed981e8fa
+  gitops-promoter-0.2.4.tgz: sha256:53320e3264ab057f5d8d82b875608ace5fc14db238aad363e63053b380319565
 -----BEGIN PGP SIGNATURE-----
 
-wsFcBAEBCgAQBQJphmNtCRBzw2xWw/BujgAAwDMQAMqdHIe9BLkenekk7OxWEbx0
-Pm6Y/KKPn1/efgiBbHVWI7u9g9SEA832B1Cl//qiHHgcF8ip3aYf39AhEEmO7Kth
-VJQ4A1cTLEuI+XlcuWJFoVW0JnQtefPVgP5wYS1t2QwF6MBzIPoas4R/EwdEznm3
-rLz0MLe4S5KrjEYAKWuyLqh7q20xRX2bceTKYXRUy4k5LHPi3+r1TexnBGDhQPHw
-Id+SJNpj2A0dxBCB83xgo0JJIZd8fqOtj4VEtLdVYoeScgsuFJ+iv3XyQgzZaoLh
-+EAHVDIu7YugCWj+eK9+liMIBm1lRpUB6waPwhx6giq0B7pqedH73mMWyCGG2iyG
-MqPh+pPa/n9zVAsp+8IQaVLQbyHVWNTcXbPHVIp8PUI61fo4MUkSVenTqXLyMfRG
-eMeR321TjKKbY3shOt8mOUAQsmvUf53XVZmT6Uy7k2p1bVhBqcTn6LL6DzkFWjdU
-e0gDVG1X7cBuZQeFbqq4xENGmD7OFMXWfeQVtjw3egmdq9wwHHsikPdnOh97Fh3O
-pz+Zb+LdDJ9cekUaDZC868QwUOBZNjneln0WcMfNNt/pJg9lr3YrEaTSDxuhqxiN
-DBevzCu9gDSM5iTqM9ZaeZ2EvI9bjA5f/iRYyfeWpnXzC3c2vD4/4VuXfjKRohoe
-maXWkCfhW4vHa88afiSS
-=xWok
+wsFcBAEBCgAQBQJphmOaCRBzw2xWw/BujgAARmQQAEznEDGZpNiXPbGekR6SjVQ/
+PWLlT/gX9xjsHNSExHsVm63FuJFGjdOGGWaMReDfUUJjjJ5uUpq37SavkNNZYgDv
+XY1ndvQe4renJD+fbNwGpkaemZTA5MBjWAoBW/W1D37gll8JSNUEKYxKSyMOzn9H
+lkUtuspWtdppLAHVDkFJlN36z2Uly1OeNjN1o35QcV61VJ6vAuwndfJtfGxVVu3h
++XJykooqYkuHGjo6pLU+fBV3NZ983o32COQ+kpkvJ5+99Sf5UNneNGujVssrklAf
+pYA8VeazTMMDj5e9KoaPcLpIIS7tdCr4KeKg+OXIH9//kyVyMuNWekHf4ZSsjg3b
+c4udpUeV7SiF7FGc8iV+4nL9MBPNf4b9mcOoIgv6JP7FYqshnjXtaVgDKPmOvFVp
+xvQiIiKIm/jsjxLdyxk3TbdNT4CsrmarF8o6Nm0AOR8GavHjlWbPwOa2Ix2bfcE6
+Deph0A8aBORyA4Apk1NF6/c0YaKBZIq3iOBTTOYXDdFi5Ds6HZOwZsuFlZtpRbg1
+vu0hKGIrEgm+rEdKEfPbv5kP+Nx/V2O/7fbKHavfgprWvefzAjsCeyb9r1uCQwu8
+EqAxqzWBd1auac7eXXvfO+SokDoz9LU31C8rWvSZ7LZA+AvAF0qN94nJ1m/N1TSj
+J4OHVAL9IfOrioBexHBQ
+=wKIi
 -----END PGP SIGNATURE-----
